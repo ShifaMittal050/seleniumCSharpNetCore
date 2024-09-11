@@ -12,8 +12,8 @@ namespace SeleniumCSharpNetCore.Hooks
     [Binding]
     public sealed class Hooks1 : DriverHelper
     {
-       // private DriverHelper _driverHelper;
-       // public Hooks1(DriverHelper driverHelper) => _driverHelper = driverHelper;
+       private DriverHelper _driverHelper;
+       public Hooks1(DriverHelper driverHelper) => _driverHelper = driverHelper;
 
         [BeforeScenario]
         public void BeforeScenario()
@@ -25,15 +25,15 @@ namespace SeleniumCSharpNetCore.Hooks
 
             new DriverManager().SetUpDriver(new ChromeConfig());
             Console.WriteLine("Setup");
-           // _driverHelper.Driver = new ChromeDriver(option);
-            Driver = new ChromeDriver(option);
+            _driverHelper.Driver = new ChromeDriver(option);
+            //Driver = new ChromeDriver(option);
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-           // _driverHelper.Driver.Quit();
-            Driver.Quit();
+            _driverHelper.Driver.Quit();
+           // Driver.Quit();
         }
     }
 }
