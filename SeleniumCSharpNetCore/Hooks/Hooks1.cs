@@ -22,7 +22,6 @@ namespace SeleniumCSharpNetCore.Hooks
             option.AddArguments("start-maximized");
             option.AddArguments("--disable-gpu");
             option.AddArguments("--headless");
-            Option.addArguments("— remote-allow-origins=*");
             new DriverManager().SetUpDriver(new ChromeConfig());
             Console.WriteLine("Setup");
             _driverHelper.Driver = new ChromeDriver(option);
